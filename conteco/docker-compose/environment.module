@@ -5,14 +5,13 @@ export CONTECO_DC_GLOBAL_STACKS="streamsets.base,nginx.rewrite"
 export CONTECO_DC_GLOBAL_STACKNAMES="streamsets,ui_streamsets"
 export CONTECO_DC_GLOBAL_BOOTSTACKS="streamsets"
 export CONTECO_DC_GLOBAL_RUNSTACKS="ui_streamsets"
-export CONTECO_DC_GLOBAL_VOLUME_LIST="streamsets_volume"
+export CONTECO_DC_GLOBAL_VOLUME_LIST="conteco_dc_streamsets_volume"
 # END CONFIGURATION
 
 # START OTHER VARIABLES
 # END OTHER VARIABLES
 
 # START VOLUMES VARIABLES
-export CONTECO_DC_STREAMSETS_VOLUMES="'${CONTECO_TYPE}_streamsets_volume:/data'"
 export CONTECO_DC_UI_STREAMSETS_VOLUMES=
 export CONTECO_DC_GLOBAL_VOLUMES=""
 # END VOLUMES VARIABLES

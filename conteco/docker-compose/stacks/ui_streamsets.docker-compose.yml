@@ -5,7 +5,7 @@ services:
 # START SERVICE nginx.rewrite
   nginx:
     image: ${CONTECO_REGISTRY}${CONTECO_REALM}/conteco.nginx.rewrite:1.17.3
-    environment: ['CONTECO_NGINX_CONF_LOCATION=/${CONTECO_TYPE}/streamsets', 'CONTECO_NGINX_CONF_PROXY_PASS=${CONTECO_TYPE}_streamsets_streamsets:18630']
+    environment: ['CONTECO_NGINX_CONF_LOCATION=/${CONTECO_TYPE}/conteco_dc_streamsets', 'CONTECO_NGINX_CONF_PROXY_PASS=${CONTECO_TYPE}_conteco_dc_streamsets_streamsets:18630']
     command: []
     volumes: [${CONTECO_DC_UI_STREAMSETS_VOLUMES}]
     ports: []
@@ -19,8 +19,8 @@ services:
         reservations:
           cpus: '${CONTECO_DC_UI_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${CONTECO_DC_UI_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
-      labels: [traefik.enable=true,traefik.docker.network=conteco_overlay, traefik.http.services.${CONTECO_TYPE}_streamsets_streamsets.loadbalancer.server.port=80, traefik.http.routers.${CONTECO_TYPE}_streamsets_streamsets.entrypoints=conteco, traefik.http.routers.${CONTECO_TYPE}_streamsets_streamsets.rule=PathPrefix("/${CONTECO_TYPE}/streamsets")]
+      labels: [traefik.enable=true,traefik.docker.network=conteco_overlay, traefik.http.services.${CONTECO_TYPE}_conteco_dc_streamsets_streamsets.loadbalancer.server.port=80, traefik.http.routers.${CONTECO_TYPE}_conteco_dc_streamsets_streamsets.entrypoints=conteco, traefik.http.routers.${CONTECO_TYPE}_conteco_dc_streamsets_streamsets.rule=PathPrefix("/${CONTECO_TYPE}/conteco_dc_streamsets")]
 # END SERVICE nginx.rewrite
 
-volumes: {${CONTECO_DC_GLOBAL_VOLUMES}}
+volumes: {}
 networks: {conteco_overlay: { external: true }, ${CONTECO_TYPE}_overlay: { external: true }}

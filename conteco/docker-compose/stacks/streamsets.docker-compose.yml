@@ -7,8 +7,8 @@ services:
     image: ${CONTECO_REGISTRY}${CONTECO_REALM}/conteco.streamsets.base:3.10.1
     environment: ['SDC_JAVA_OPTS=-Xmx${CONTECO_DC_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY} -Xms${CONTECO_DC_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}']
     command: []
-    volumes: [${CONTECO_DC_STREAMSETS_VOLUMES}]
-    ports: [18630:18630]
+    volumes: ['${CONTECO_TYPE}_conteco_dc_streamsets_volume:/data']
+    ports: []
     networks: [${CONTECO_TYPE}_overlay]
     deploy:
       mode: replicated
@@ -22,5 +22,5 @@ services:
       labels: [${CONTECO_DC_STREAMSETS_DEPLOY_LABELS}]
 # END SERVICE streamsets.base
 
-volumes: {${CONTECO_DC_GLOBAL_VOLUMES}}
+volumes: {${CONTECO_TYPE}_conteco_dc_streamsets_volume: { external: true }}
 networks: {${CONTECO_TYPE}_overlay: { external: true }}
