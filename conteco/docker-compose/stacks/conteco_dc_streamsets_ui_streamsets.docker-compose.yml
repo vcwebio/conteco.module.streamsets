@@ -12,6 +12,7 @@ services:
     networks: [${CONTECO_NETWORKGLOBAL}_overlay, ${CONTECO_NETWORKLOCAL}_overlay]
     deploy:
       mode: replicated
+      replicas: ${CONTECO_DC_STREAMSETS_UI_STREAMSETS_DEPLOY_REPLICAS}
       resources:
         limits:
           cpus: '${CONTECO_DC_STREAMSETS_UI_STREAMSETS_DEPLOY_RESOURCES_LIMITS_CPUS}'
@@ -19,7 +20,10 @@ services:
         reservations:
           cpus: '${CONTECO_DC_STREAMSETS_UI_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${CONTECO_DC_STREAMSETS_UI_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
+      placement:
+        constraints: [${CONTECO_DC_STREAMSETS_UI_STREAMSETS_DEPLOY_PLACEMENT_CONSTRAINTS}]
       labels: [traefik.enable=true,traefik.docker.network=${CONTECO_NETWORKGLOBAL}_overlay, traefik.http.services.${CONTECO_STACKPREFIX}_nginx.loadbalancer.server.port=80, traefik.http.routers.${CONTECO_STACKPREFIX}_nginx.entrypoints=conteco, traefik.http.routers.${CONTECO_STACKPREFIX}_nginx.rule=PathPrefix("/${CONTECO_URLPREFIX}/streamsets")]
+    labels: [${CONTECO_DC_STREAMSETS_UI_STREAMSETS_LABELS}]
 # END SERVICE nginx.rewrite
 
 volumes: {}
