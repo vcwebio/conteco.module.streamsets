@@ -11,4 +11,5 @@ The module consists of the following stacks:
 
 ## Tags
 
-* v1.0.0
+* 3.16.0
+* 3.10.1

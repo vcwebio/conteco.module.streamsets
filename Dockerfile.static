@@ -14,12 +14,12 @@ COPY ./ /conteco/repo/
 ##### BEGIN image/Dockerfile/env-labels-footer #####
 ENV CONTECO_TYPE="module" \
     CONTECO_NAME="streamsets" \
-    CONTECO_TAG="3.10.1" \
+    CONTECO_TAG="3.16.0" \
     CONTECO_BASE="image.wrapper" \
     CONTECO_BUILD="image"
 LABEL io.vcweb.type="module" \
       io.vcweb.name="streamsets" \
-      io.vcweb.tag="3.10.1" \
+      io.vcweb.tag="3.16.0" \
       io.vcweb.base="image.wrapper" \
       io.vcweb.build="image" \
       io.vcweb.label="module.streamsets - ContEco" \
