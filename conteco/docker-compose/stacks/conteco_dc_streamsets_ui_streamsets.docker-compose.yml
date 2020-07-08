@@ -17,6 +17,8 @@ services:
           memory: '${CONTECO_DC_STREAMSETS_UI_STREAMSETS_DEPLOY_RESOURCES_LIMITS_MEMORY}'
         reservations:
           memory: '${CONTECO_DC_STREAMSETS_UI_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
+
+      labels: [traefik.enable=true,traefik.docker.network=${CONTECO_NETWORKGLOBAL}_overlay, traefik.http.services.${CONTECO_STACKPREFIX}_nginx.loadbalancer.server.port=80, traefik.http.routers.${CONTECO_STACKPREFIX}_nginx.entrypoints=conteco, traefik.http.routers.${CONTECO_STACKPREFIX}_nginx.rule=PathPrefix("/${CONTECO_URLPREFIX}/streamsets")]
 ${CONTECO_DC_STREAMSETS_UI_STREAMSETS_COMPOSE_EXTENSIONS}
 # END SERVICE nginx.rewrite
 
