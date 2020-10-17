@@ -5,7 +5,7 @@ export CONTECO_DESCRIPTION="Streamsets module with managed standard URL UI."
 
 export CONTECO_TYPE="module"
 export CONTECO_NAME="streamsets"
-export CONTECO_TAG="3.16.0"
+export CONTECO_TAG="3.19.0"
 
 export CONTECO_BASE="image.wrapper"
 export CONTECO_BUILD="image"
