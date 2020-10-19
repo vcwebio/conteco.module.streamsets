@@ -4,11 +4,11 @@ services:
 
 # START SERVICE streamsets.base
   streamsets:
-    image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.streamsets.base:3.16.0
+    image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.streamsets.base:3.19.0
     environment: ['SDC_JAVA_OPTS=-Xmx${CONTECO_DC_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY} -Xms${CONTECO_DC_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}']
     command: []
     volumes: ['${CONTECO_STACKPREFIX}_streamsets_volume:/data']
-    ports: []
+    ports: [18630:18630]
     networks: [${CONTECO_NETWORKLOCAL}_overlay]
     deploy:
       mode: replicated
